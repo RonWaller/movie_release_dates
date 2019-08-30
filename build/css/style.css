@@ -17,6 +17,10 @@ body {
   color: black;
 }
 
+ul {
+  list-style: none;
+}
+
 a {
   color: #0074D9;
   text-decoration: none;
