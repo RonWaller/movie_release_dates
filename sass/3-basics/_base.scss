@@ -7,14 +7,32 @@ html {
 *:before,
 *:after {
 	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
 }
 
 body {
 	font-size: 18px;
 	line-height: 1.6;
 	color: black;
+	margin: 0;
+	padding: 0;
 }
 
 ul {
 	list-style: none;
+}
+
+header {
+	height: 50px;
+	background-color: $olive;
+}
+
+main {
+	height: auto;
+	background-image: url('../../build/img/movie_seats.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	opacity: 0.75;
 }

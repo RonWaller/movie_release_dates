@@ -1,10 +1,10 @@
 a {
-  color: $blue;
-  text-decoration: none;
-  outline: 0;
+	color: $navy;
+	text-decoration: none;
+	outline: 0;
 
-  &:hover,
-  &:focus {
-    color: $fuchsia;
-  }
+	&:hover,
+	&:focus {
+		color: $lime;
+	}
 }
