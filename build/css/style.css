@@ -30,7 +30,7 @@ header {
 
 main {
   height: auto;
-  background-image: url("../../build/img/movie_seats.jpg");
+  background-image: url("../img/movie_seats.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -182,7 +182,7 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../../build/img/movie_reel.jpg");
+  background-image: url("../img/movie_reel.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
