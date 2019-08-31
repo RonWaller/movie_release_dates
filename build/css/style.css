@@ -1,14 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,900");
 html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
 }
@@ -32,7 +30,7 @@ header {
 
 main {
   height: auto;
-  background-image: url("/build/img/movie_seats.jpg");
+  background-image: url("../../build/img/movie_seats.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -153,15 +151,9 @@ hr {
 }
 
 #nav ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: flex-end;
+  align-items: center;
   height: inherit;
   margin: 0 15px;
   padding: 0;
@@ -177,30 +169,20 @@ hr {
 }
 
 .container {
-  display: -ms-grid;
   display: grid;
   height: auto;
   width: 100%;
   padding: 40px;
-  -ms-grid-columns: (400px)[4];
-      grid-template-columns: repeat(4, 400px);
-  grid-row-gap: 30px;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  grid-template-columns: repeat(4, 400px);
+  grid-row-gap: 35px;
+  justify-content: space-evenly;
 }
 
 .hero {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-image: url("/build/img/movie_reel.jpg");
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../build/img/movie_reel.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -213,16 +195,11 @@ hr {
 }
 
 .card {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   padding: 15px;
   background-color: #ddd;
   width: 400px;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   color: #111;
 }
 
@@ -231,15 +208,9 @@ hr {
 }
 
 .movie__description {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .movie__description p {
