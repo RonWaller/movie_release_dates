@@ -2,8 +2,8 @@
 	display: grid;
 	height: auto;
 	width: 100%;
-	padding: 40px;
-	grid-template-columns: repeat(4, 400px);
+	padding: 40px 10px;
+	grid-template-columns: repeat(5, 350px);
 	grid-row-gap: 35px;
 	justify-content: space-evenly;
 }

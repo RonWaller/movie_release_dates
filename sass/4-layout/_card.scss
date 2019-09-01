@@ -2,12 +2,17 @@
 	display: flex;
 	padding: 15px;
 	background-color: $silver;
-	width: 400px;
+	width: 350px;
 	flex-direction: row;
 	color: $black;
 	& ul {
 		text-align: center;
 	}
+}
+
+.movie_info img {
+	width: 150px;
+	height: 250px;
 }
 
 .movie__description {

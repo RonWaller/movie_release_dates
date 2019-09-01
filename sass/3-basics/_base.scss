@@ -35,4 +35,10 @@ main {
 	background-position: center;
 	background-size: cover;
 	opacity: 0.75;
+	padding-top: 25px;
+	& h3 {
+		font-family: 'Roboto', sans-serif;
+		color: $silver;
+		text-align: center;
+	}
 }

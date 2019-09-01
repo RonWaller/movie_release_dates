@@ -35,6 +35,13 @@ main {
   background-position: center;
   background-size: cover;
   opacity: 0.75;
+  padding-top: 25px;
+}
+
+main h3 {
+  font-family: 'Roboto', sans-serif;
+  color: #ddd;
+  text-align: center;
 }
 
 a {
@@ -45,6 +52,7 @@ a {
 
 a:hover, a:focus {
   color: #01FF70;
+  cursor: pointer;
 }
 
 .gigantic,
@@ -172,8 +180,8 @@ hr {
   display: grid;
   height: auto;
   width: 100%;
-  padding: 40px;
-  grid-template-columns: repeat(4, 400px);
+  padding: 40px 10px;
+  grid-template-columns: repeat(5, 350px);
   grid-row-gap: 35px;
   justify-content: space-evenly;
 }
@@ -198,13 +206,18 @@ hr {
   display: flex;
   padding: 15px;
   background-color: #ddd;
-  width: 400px;
+  width: 350px;
   flex-direction: row;
   color: #111;
 }
 
 .card ul {
   text-align: center;
+}
+
+.movie_info img {
+  width: 150px;
+  height: 250px;
 }
 
 .movie__description {
