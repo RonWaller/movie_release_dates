@@ -19,21 +19,57 @@ async function getMovies() {
 }
 
 getMovies()
-	.then(res => {
-		console.log('movies:', res);
+	.then(movies => {
+		console.log('movies:', movies);
+		return buildContent(movies);
 	})
 	.catch(err => console.log(err));
 
-function buildContent() {
-	const card = document.createElement('div');
-	const img = document.createElement('img');
-	const movieInfo = document.createElement('div');
-	const ul = document.createElement('ul');
-	const item = document.createElement('li');
-	const movieDescription = document.createElement('div');
-	const p = document.createElement('p');
+function buildContent(movies) {
+	movies.forEach(movie => {
+		image_baseurl = 'http://image.tmdb.org/t/p/';
+		poster_size = 'w154';
+		let date = formatDate(movie.release_date);
+		const card = document.createElement('div');
+		card.classList.add('card');
+		const movieInfo = document.createElement('div');
+		movieInfo.classList.add('movie__info');
+		const img = document.createElement('img');
+		img.src = `${image_baseurl}${poster_size}${movie.poster_path}`;
+		img.alt = `${movie.original_title}`;
+		const ul = document.createElement('ul');
+		const firstItem = document.createElement('li');
+		firstItem.innerHTML = `${date}`;
+		const secondItem = document.createElement('li');
+		secondItem.innerHTML = `<a href="#">More Info</a>`;
+		const movieDescription = document.createElement('div');
+		movieDescription.classList.add('movie__description');
+		const p = document.createElement('p');
+		p.innerHTML = `${movie.overview}`;
+		ul.appendChild(firstItem);
+		ul.appendChild(secondItem);
+		movieInfo.appendChild(img);
+		movieInfo.appendChild(ul);
+		movieDescription.appendChild(p);
+		card.appendChild(movieInfo);
+		card.appendChild(movieDescription);
+		container.appendChild(card);
+	});
 }
 
+function formatDate(date) {
+	const splitDate = date.split('-');
+	console.log('date:', splitDate);
+	if (splitDate.count == 0) {
+		return null;
+	}
+
+	const year = splitDate[0];
+	const month = splitDate[1];
+	const day = splitDate[2];
+
+	return month + '/' + day + '/' + year;
+}
 // let div = document.createElement('div');
 // let img = document.createElement('img');
 // let footer = document.createElement('footer');

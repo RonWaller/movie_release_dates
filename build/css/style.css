@@ -222,11 +222,18 @@ hr {
 
 .movie__description {
   display: flex;
+  max-height: 260px;
+  max-width: 180px;
+  padding: 20px;
   justify-content: center;
   align-items: center;
 }
 
 .movie__description p {
-  margin: 0 20px;
+  display: inline-block;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 /*# sourceMappingURL=style.css.map */
