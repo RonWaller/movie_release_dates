@@ -27,7 +27,7 @@ getMovies()
 
 function buildContent(movies) {
 	movies.forEach(movie => {
-		image_baseurl = 'http://image.tmdb.org/t/p/';
+		image_baseurl = 'https://image.tmdb.org/t/p/';
 		poster_size = 'w154';
 		let date = moment(movie.release_date, 'YYYY/MM/DD').format('LL');
 		const card = document.createElement('div');
