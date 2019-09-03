@@ -224,7 +224,7 @@ hr {
   display: flex;
   height: 270px;
   max-width: 180px;
-  padding: 20px 10px;
+  padding: 20px 0 20px 10px;
   justify-content: center;
   align-items: center;
 }
@@ -239,7 +239,6 @@ hr {
   /* max-height = line-height (1.2) * lines max number (3) */
   max-height: 16.8em;
   /* fix problem when last visible word doesn't adjoin right side  */
-  text-align: justify;
   /* place for '...' */
   margin-bottom: 0;
   margin-right: -1em;
@@ -252,8 +251,8 @@ hr {
   /* absolute position */
   position: absolute;
   /* set position to right bottom corner of block */
-  right: 0;
-  bottom: 0;
+  right: 19px;
+  bottom: -4px;
 }
 
 .movie__description p:after {
@@ -262,7 +261,7 @@ hr {
   /* absolute position */
   position: absolute;
   /* set position to right bottom corner of text */
-  right: 0;
+  right: 19px;
   /* set width and height */
   width: 1em;
   height: 1em;
