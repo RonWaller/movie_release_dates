@@ -2,8 +2,9 @@
 	display: flex;
 	padding: 15px;
 	background-color: $silver;
-	width: 350px;
+	width: 100%;
 	flex-direction: row;
+	justify-content: center;
 	color: $black;
 	& ul {
 		text-align: center;
@@ -16,13 +17,14 @@
 }
 
 .movie__description {
-	display: flex;
+	// display: flex;
 	height: 270px;
 	max-width: 180px;
-	padding: 20px 0 20px 10px;
-	justify-content: center;
-	align-items: center;
+	padding: 20px 0 10px 10px;
+	// justify-content: center;
+	// align-items: center;
 	& p {
+		display: block;
 		/* hide text if it more than N lines  */
 		overflow: hidden;
 		/* for set '...' in absolute position */
@@ -30,11 +32,11 @@
 		/* use this value to count block height */
 		line-height: 1.2em;
 		/* max-height = line-height (1.2) * lines max number (3) */
-		max-height: 16.8em;
+		max-height: 17em;
 		/* fix problem when last visible word doesn't adjoin right side  */
-		// text-align: justify;
+		text-align: justify;
 		/* place for '...' */
-		margin-bottom: 0;
+		// margin-bottom: 0;
 		margin-right: -1em;
 		padding-right: 1em;
 		&:before {
@@ -43,8 +45,8 @@
 			/* absolute position */
 			position: absolute;
 			/* set position to right bottom corner of block */
-			right: 19px;
-			bottom: -4px;
+			right: 0;
+			bottom: 0;
 		}
 		&:after {
 			/* points in the end */
@@ -52,7 +54,7 @@
 			/* absolute position */
 			position: absolute;
 			/* set position to right bottom corner of text */
-			right: 19px;
+			right: 0;
 			/* set width and height */
 			width: 1em;
 			height: 1em;
@@ -104,11 +106,3 @@
 //   /* bg color = bg color under block */
 //   background: white;
 // }
-
-// display: inline-block;
-// 		margin: 0;
-// 		height: 100%;
-// 		width: 100%;
-// 		//white-space: nowrap;
-// 		overflow: hidden;
-// 		//text-overflow: ellipsis;

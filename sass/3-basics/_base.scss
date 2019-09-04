@@ -42,3 +42,14 @@ main {
 		text-align: center;
 	}
 }
+.movie_year {
+	margin-top: 20px;
+	& ul {
+		display: flex;
+		color: #fff;
+		justify-content: center;
+		& li {
+			margin: 0 20px;
+		}
+	}
+}
