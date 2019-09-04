@@ -53,3 +53,24 @@ main {
 		}
 	}
 }
+
+.btn {
+	font-family: 'Roboto', sans-serif;
+	background-color: $olive;
+	color: $blue;
+	border-radius: 5px;
+	padding: 5px 10px;
+	&:hover {
+		color: $blue;
+		cursor: pointer;
+	}
+}
+
+.active {
+	background-color: $blue;
+	color: $silver;
+	&:hover {
+		color: $silver;
+		cursor: default;
+	}
+}
