@@ -1,4 +1,5 @@
 const year = '2019';
+window.movieID = '';
 const container = document.querySelector('.container');
 const movieYear = document.querySelector('.movie_year');
 
@@ -54,19 +55,15 @@ function buildContent(movies) {
 
 document.addEventListener('DOMContentLoaded', init(year));
 
-// container.addEventListener('click', e => {
-// 	if (e.target && e.target.tagName == 'LI') {
-// 		console.log('target:', e.target);
-// 		const id = e.target.getAttribute('data-movie-id');
-// 		console.log('id:', id);
-// 		window.location.href = 'http://www.w3schools.com';
-// 	}
-// });
+container.addEventListener('click', e => {
+	if (e.target && e.target.tagName == 'LI') {
+		console.log('target:', e.target);
+		movieID = e.target.getAttribute('data-movie-id');
+		console.log('id:', movieID);
 
-// info.addEventListener('click', e => {
-// 	const target = e.target;
-// 	console.log(target);
-// });
+		// window.location.href = '../../build/movie_details.html';
+	}
+});
 
 movieYear.addEventListener('click', e => {
 	const target = e.target;

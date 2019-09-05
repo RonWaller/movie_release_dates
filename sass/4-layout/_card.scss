@@ -4,7 +4,7 @@
 	background-color: $silver;
 	width: 100%;
 	flex-direction: row;
-	justify-content: center;
+	justify-content: space-evenly;
 	color: $black;
 	box-shadow: 3px 3px 5px $silver;
 	& ul {
