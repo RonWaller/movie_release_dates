@@ -1,5 +1,5 @@
 const year = '2019';
-window.movieID = '';
+let movieID = '';
 const container = document.querySelector('.container');
 const movieYear = document.querySelector('.movie_year');
 
@@ -40,7 +40,7 @@ function buildContent(movies) {
 						<img src="${image_baseurl}${poster_size}${movie.poster_path}" alt="${movie.original_title}">
 						<ul id='info'>
 							<li>${date}</li>
-							<li id='moreInfo' data-movie-id="${movie.id}">More Info</li>
+							<li id='moreInfo' onclick='setMovieID()' data-movie-id="${movie.id}">More Info</li>
 						</ul>
 					</div>
 					<div class="movie__description">
@@ -55,15 +55,12 @@ function buildContent(movies) {
 
 document.addEventListener('DOMContentLoaded', init(year));
 
-container.addEventListener('click', e => {
-	if (e.target && e.target.tagName == 'LI') {
-		console.log('target:', e.target);
-		movieID = e.target.getAttribute('data-movie-id');
-		console.log('id:', movieID);
-
-		// window.location.href = '../../build/movie_details.html';
-	}
-});
+function setMovieID() {
+	movieID = event.target.getAttribute('data-movie-id');
+	console.log('id:', movieID);
+	localStorage.setItem('id', movieID);
+	window.location.href = './movie_details.html';
+}
 
 movieYear.addEventListener('click', e => {
 	const target = e.target;

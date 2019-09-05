@@ -14,7 +14,8 @@
         "../../sass/4-layout/_nav.scss",
         "../../sass/4-layout/_grid.scss",
         "../../sass/4-layout/_hero.scss",
-        "../../sass/4-layout/_card.scss"
+        "../../sass/4-layout/_card.scss",
+        "../../sass/6-pages/movie_details.scss"
     ],
     "names": [],
     "file": "style.css"
