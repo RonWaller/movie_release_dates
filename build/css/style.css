@@ -29,11 +29,13 @@ header {
 }
 
 main {
-  height: auto;
+  height: 100%;
+  width: 100%;
   background-image: url("../img/movie_seats.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
   opacity: 0.75;
   padding-top: 25px;
 }
@@ -61,7 +63,7 @@ main h3 {
 .btn {
   font-family: 'Roboto', sans-serif;
   background-color: #3D9970;
-  color: #0074D9;
+  color: #001F3F;
   border-radius: 5px;
   padding: 5px 10px;
 }
@@ -304,5 +306,14 @@ hr {
   margin-top: 0.2em;
   /* bg color = bg color under block */
   background: #ddd;
+}
+
+#info #moreInfo {
+  cursor: pointer;
+  color: #0074D9;
+}
+
+#info #moreInfo:hover {
+  color: #85144B;
 }
 /*# sourceMappingURL=style.css.map */
