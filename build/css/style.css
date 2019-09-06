@@ -316,4 +316,34 @@ hr {
 #info #moreInfo:hover {
   color: #85144B;
 }
+
+.movie_details {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.big_card {
+  display: grid;
+  grid-template-columns: 350px 350px;
+  grid-template-rows: auto;
+  grid-template-areas: 'movie_image movie_info' 'movie_actors movie_actors';
+  background-color: #aaa;
+  color: #111;
+}
+
+.movie_poster {
+  grid-area: movie_image;
+}
+
+.detailed_info {
+  grid-area: movie_info;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.movie_actors {
+  grid-area: movie_actors;
+}
 /*# sourceMappingURL=style.css.map */

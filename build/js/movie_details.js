@@ -4,7 +4,7 @@ const movieID = (movie_details.innerHTML = localStorage.getItem('id'));
 async function movieDetails(movieID) {
 	const api = '9460c3936e9e9f9d5fd2b7f0b50f733b';
 	const id = parseInt(movieID);
-	let url = `https://api.themoviedb.org/3/movie/${id}?api_key=${api}&language=en-US&append_to_response=release_dates`;
+	let url = `https://api.themoviedb.org/3/movie/${id}?api_key=${api}&language=en-US&append_to_response=release_dates,credits`;
 	const response = await axios.get(url);
 	const { data } = response;
 	// const results = data.results;
@@ -26,6 +26,7 @@ function buildDetail(movie) {
         <h3>${movie.title}</h3>
         <p>${movie.overview}</p>
       </div>
+      <div class='movie_actors'></div>
     </div>`;
 	movie_details.innerHTML = html;
 }
