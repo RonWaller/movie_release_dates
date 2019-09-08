@@ -19,7 +19,7 @@ function buildDetail(movie) {
 	credits.splice(5, 43);
 	const actors_html = credits
 		.map(actor => {
-			const url = `${image_baseurl}w154${actor.profile_path}`;
+			const url = `${image_baseurl}w92${actor.profile_path}`;
 			const htmlString = `
     <div class="actor">
 				<img src="${url}" alt="${actor.name}" />
@@ -30,23 +30,67 @@ function buildDetail(movie) {
 			return htmlString;
 		})
 		.join('');
-	console.log(credits);
+
+	const release_dates = movie.release_dates.results;
+	console.log('results:', release_dates);
+
+	const release_date = release_dates
+		.filter(iso => {
+			if (iso.iso_3166_1 === 'US') {
+				console.log('iso:', iso);
+				return iso;
+			}
+		})
+		.map((date, index) => {
+			console.log('date:', date);
+			return date.release_dates[index];
+		});
+
+	console.log('returned:', release_date);
+
+	// const rating = release_date[0].filter(item => {
+	// 	console.log('item:', item.certification);
+	// 	if (item.certification != '') {
+	// 		return item.certification;
+	// 	}
+	// });
+	// console.log('rating:', rating);
+
+	const formatter = new Intl.NumberFormat('en-US', {
+		style: 'currency',
+		currency: 'USD',
+		minimumFractionDigits: 0,
+		maximumFractionDigits: 0
+	});
+
+	const budget = formatter.format(movie.budget);
+	const revenue = formatter.format(movie.revenue);
+
 	const html = `
     <div class="big_card">
-      <div class='goback'><-- Go Back</div>
+      <div onclick='goBack()' class='goback'>&#x2190; Go Back</div>
       <div class="movie_poster">
         <img src="${image_baseurl}${poster_size}${movie.poster_path}" alt="">
       </div>
       <div class="detailed_info">
         <!-- movie information goes here -->
         <h2>${movie.title}</h2>
-        <p>${movie.overview}</p>
+				<p>${movie.overview}</p>
+				<h4>Budget:</h4>
+				<span>${budget}</span>
+				<h4>Revenue</h4>
+				<span>${revenue}</span>
+
       </div>
       <div class='movie_actors'>
         ${actors_html}
       </div>
     </div>`;
 	movie_details.innerHTML = html;
+}
+
+function goBack() {
+	window.location.href = './index.html';
 }
 
 movieDetails(movieID)

@@ -6,6 +6,7 @@ const movieYear = document.querySelector('.movie_year');
 function init(year) {
 	getMovies(year)
 		.then(movies => {
+			console.log(movies);
 			return buildContent(movies);
 		})
 		.catch(err => console.log(err));
