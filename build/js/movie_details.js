@@ -11,12 +11,15 @@ async function movieDetails(movieID) {
 }
 
 function buildDetail(movie) {
-	image_baseurl = 'https://image.tmdb.org/t/p/';
-	poster_size = 'w342';
+	const image_baseurl = 'https://image.tmdb.org/t/p/';
+	const poster_size = 'w342';
+	const credits = movie.credits.cast;
+
 	document.title = `${movie.title} | The Movie Island `;
 	movie_details.style.backgroundImage = `url('${image_baseurl}original${movie.backdrop_path}')`;
-	const credits = movie.credits.cast;
+
 	credits.splice(5, 43);
+
 	const actors_html = credits
 		.map(actor => {
 			const url = `${image_baseurl}w92${actor.profile_path}`;
@@ -32,29 +35,10 @@ function buildDetail(movie) {
 		.join('');
 
 	const release_dates = movie.release_dates.results;
-	console.log('results:', release_dates);
-
-	const release_date = release_dates
-		.filter(iso => {
-			if (iso.iso_3166_1 === 'US') {
-				console.log('iso:', iso);
-				return iso;
-			}
-		})
-		.map((date, index) => {
-			console.log('date:', date);
-			return date.release_dates[index];
-		});
-
-	console.log('returned:', release_date);
-
-	// const rating = release_date[0].filter(item => {
-	// 	console.log('item:', item.certification);
-	// 	if (item.certification != '') {
-	// 		return item.certification;
-	// 	}
-	// });
-	// console.log('rating:', rating);
+	const dateInfo = getReleaseDates(release_dates);
+	console.log('dataInfo:', dateInfo);
+	const rating = getRating(dateInfo);
+	console.log('rating:', rating);
 
 	const formatter = new Intl.NumberFormat('en-US', {
 		style: 'currency',
@@ -87,6 +71,46 @@ function buildDetail(movie) {
       </div>
     </div>`;
 	movie_details.innerHTML = html;
+}
+
+function getReleaseDates(release_dates) {
+	const release_date = release_dates.filter(iso => {
+		if (iso.iso_3166_1 === 'US') {
+			console.log('iso:', iso);
+			return iso.release_dates;
+		}
+	});
+	console.log('returned:', release_date);
+
+	const dates = release_date.map(item => {
+		return item.release_dates;
+	});
+	return dates[0];
+	console.log('dates:', dates);
+}
+
+function getRating(dateInfo) {
+	let rating = dateInfo.map(rate => {
+		if (rate.certification != '') {
+			return rate.certification;
+		}
+	});
+
+	console.log(rating);
+	if (rating.length > 1) {
+		console.log('Your Mom');
+		rating = rating.filter(element => {
+			return element !== undefined;
+		});
+		rating.splice(1, rating.length);
+	}
+
+	// var uniq = [...new Set(rating)];
+	//
+
+	console.log(rating.length);
+	console.log('func-rating:', rating);
+	return rating;
 }
 
 function goBack() {
