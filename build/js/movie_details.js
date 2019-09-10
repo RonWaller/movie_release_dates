@@ -17,8 +17,10 @@ function buildDetail(movie) {
 	const actors_html = getActors(movie);
 	const dateInfo = getReleaseDateInfo(movie);
 	const rating = getRating(dateInfo);
+	const runtime = getRuntime(movie);
 	const budget = getCurrency(movie.budget);
 	const revenue = getCurrency(movie.revenue);
+	const genre = getGenres(movie);
 	const releaseInfo = getReleaseInfo(dateInfo);
 
 	const html = `
@@ -31,14 +33,26 @@ function buildDetail(movie) {
         <!-- movie information goes here -->
         <h2>${movie.title}</h2>
 				<p>${movie.overview}</p>
+				<div class='ratetime'>
+				<h4>Rated:</h4>
+				<span>${rating}</span>
+				<h4>Runtime:</h4>
+				<span>${runtime}</span>
+				</div>
+				<div class='cash'>
 				<h4>Budget:</h4>
 				<span>${budget}</span>
 				<h4>Revenue:</h4>
 				<span>${revenue}</span>
-				<h4>Rated:</h4>
-				<span>${rating}</span>
+				</div>
+				<div class='genre'>
+				<h4>Genres:</h4>
+				<ul>${genre}</ul>
+				</div>
+				<div class='dates' >
 				<h4>Release Dates:</h4>
 				${releaseInfo}
+				</div>
 			</div>
       <div class='movie_actors'>
         ${actors_html}
@@ -49,7 +63,7 @@ function buildDetail(movie) {
 
 function getActors(movie) {
 	const credits = movie.credits.cast;
-	credits.splice(5, 43);
+	credits.splice(5, credits.length);
 	const html = credits
 		.map(actor => {
 			const url = `${image_baseurl}w92${actor.profile_path}`;
@@ -77,18 +91,12 @@ function getCurrency(currency) {
 }
 
 function getReleaseDateInfo(movie) {
-	const release_dates = movie.release_dates.results;
-	const release_date = release_dates.filter(iso => {
-		if (iso.iso_3166_1 === 'US') {
-			return iso.release_dates;
-		}
-	});
+	const results = movie.release_dates.results;
+	const release_dates = results
+		.filter(iso => iso.iso_3166_1 === 'US')
+		.map(item => item.release_dates);
 
-	const dates = release_date.map(item => {
-		return item.release_dates;
-	});
-
-	return dates[0];
+	return release_dates[0];
 }
 
 function getReleaseInfo(dateInfo) {
@@ -108,9 +116,7 @@ function getReleaseInfo(dateInfo) {
 					? 'Physical'
 					: 'TV';
 
-			const htmlString = `<span>${type}</span><span>${date}</span>
-		
-		`;
+			const htmlString = `<span>${type}</span><span>${date}</span>`;
 			return htmlString;
 		})
 		.join('');
@@ -132,6 +138,26 @@ function getRating(dateInfo) {
 	}
 
 	return rating;
+}
+
+function getRuntime(movie) {
+	const time = movie.runtime;
+	const hours = Math.floor(time / 60);
+	const mins = time % 60;
+	const timeStr = hours > 1 ? 'hours' : 'hour';
+	const html = `${hours} ${timeStr} ${mins} minutes`;
+	return html;
+}
+
+function getGenres(movie) {
+	genres = movie.genres
+		.map(item => {
+			const html = `<li>${item.name}</li>`;
+			return html;
+		})
+		.join('');
+
+	return genres;
 }
 
 function goBack() {

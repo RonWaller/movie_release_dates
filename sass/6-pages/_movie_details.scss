@@ -1,6 +1,6 @@
 .movie_details {
 	display: flex;
-	height: 1080px;
+	height: auto;
 	width: 100%;
 	justify-content: center;
 	background-repeat: no-repeat;
@@ -55,11 +55,39 @@
 		font-size: 1.2rem;
 		margin-top: 25px;
 	}
+	& div {
+		margin: 0 auto;
+		width: 75%;
+	}
+	& .ratetime {
+		display: flex;
+		justify-content: space-between;
+	}
+	& .cash {
+		display: flex;
+		justify-content: space-between;
+	}
+	& .dates {
+		display: flex;
+		flex-direction: column;
+	}
+	& .genre {
+		display: flex;
+		justify-content: space-evenly;
+		// margin-left: 54px;
+		& ul {
+			display: flex;
+			width: 100%;
+			justify-content: space-evenly;
+		}
+	}
 }
 
 .movie_actors {
 	grid-area: movie_actors;
-	padding-left: 30px;
+	margin-top: 30px;
+	margin-left: 30px;
+	margin-bottom: 30px;
 	display: flex;
 	justify-content: space-evenly;
 }

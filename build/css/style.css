@@ -319,7 +319,7 @@ hr {
 
 .movie_details {
   display: flex;
-  height: 1080px;
+  height: auto;
   width: 100%;
   justify-content: center;
   background-repeat: no-repeat;
@@ -377,9 +377,42 @@ hr {
   margin-top: 25px;
 }
 
+.detailed_info div {
+  margin: 0 auto;
+  width: 75%;
+}
+
+.detailed_info .ratetime {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detailed_info .cash {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detailed_info .dates {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailed_info .genre {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.detailed_info .genre ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
 .movie_actors {
   grid-area: movie_actors;
-  padding-left: 30px;
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-bottom: 30px;
   display: flex;
   justify-content: space-evenly;
 }
