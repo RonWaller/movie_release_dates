@@ -16,11 +16,10 @@ function buildDetail(movie) {
 
 	const actors_html = getActors(movie);
 	const dateInfo = getReleaseDateInfo(movie);
-	console.log('dataInfo:', dateInfo);
 	const rating = getRating(dateInfo);
-
 	const budget = getCurrency(movie.budget);
 	const revenue = getCurrency(movie.revenue);
+	const releaseInfo = getReleaseInfo(dateInfo);
 
 	const html = `
     <div class="big_card">
@@ -34,10 +33,12 @@ function buildDetail(movie) {
 				<p>${movie.overview}</p>
 				<h4>Budget:</h4>
 				<span>${budget}</span>
-				<h4>Revenue</h4>
+				<h4>Revenue:</h4>
 				<span>${revenue}</span>
-				<h4>Rating</h4>
+				<h4>Rated:</h4>
 				<span>${rating}</span>
+				<h4>Release Dates:</h4>
+				${releaseInfo}
 			</div>
       <div class='movie_actors'>
         ${actors_html}
@@ -75,7 +76,7 @@ function getCurrency(currency) {
 	return formatter.format(currency);
 }
 
-function getReleaseDatesInfo(movie) {
+function getReleaseDateInfo(movie) {
 	const release_dates = movie.release_dates.results;
 	const release_date = release_dates.filter(iso => {
 		if (iso.iso_3166_1 === 'US') {
@@ -88,6 +89,32 @@ function getReleaseDatesInfo(movie) {
 	});
 
 	return dates[0];
+}
+
+function getReleaseInfo(dateInfo) {
+	const html = dateInfo
+		.map(item => {
+			const date = moment(item.release_date, 'YYYY/MM/DD').format('LL');
+			const type =
+				item.type === 1
+					? 'Premiere'
+					: item.type === 2
+					? 'Theatrical (limited)'
+					: item.type === 3
+					? 'Theatrical'
+					: item.type === 4
+					? 'Digital'
+					: item.type === 5
+					? 'Physical'
+					: 'TV';
+
+			const htmlString = `<span>${type}</span><span>${date}</span>
+		
+		`;
+			return htmlString;
+		})
+		.join('');
+	return html;
 }
 
 function getRating(dateInfo) {
