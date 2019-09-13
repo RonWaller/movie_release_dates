@@ -64,14 +64,15 @@ function buildDetail(movie) {
 function getActors(movie) {
 	const credits = movie.credits.cast;
 	credits.splice(5, credits.length);
+	// <img src="${url}" alt="${actor.name}" />
 	const html = credits
 		.map(actor => {
-			const url = `${image_baseurl}w92${actor.profile_path}`;
+			const url = `${image_baseurl}w185${actor.profile_path}`;
 			const htmlString = `
 			<div class="actor">
-					<img src="${url}" alt="${actor.name}" />
-					<h4>${actor.name}</h4>
-					<h6>${actor.character}</h6>
+				<div class='actorImage' style="background-image: url('${url}')"></div>
+				<h4>${actor.name}</h4>
+				<h6>${actor.character}</h6>
 			</div>
     `;
 			return htmlString;

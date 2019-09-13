@@ -414,6 +414,7 @@ hr {
   margin-left: 30px;
   margin-bottom: 30px;
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
 }
 
@@ -424,10 +425,13 @@ hr {
   text-align: center;
 }
 
-.actor img {
-  height: 154px;
-  width: 154px;
-  border-radius: 50%;
+.actor .actorImage {
+  height: 125px;
+  width: 125px;
+  border-radius: 125px;
+  background-size: cover;
+  background-position: center center;
+  margin: 0 auto;
 }
 
 .actor h4 {

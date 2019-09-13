@@ -89,6 +89,7 @@
 	margin-left: 30px;
 	margin-bottom: 30px;
 	display: flex;
+	flex-direction: row;
 	justify-content: space-evenly;
 }
 
@@ -98,11 +99,20 @@
 	color: $white;
 	text-align: center;
 
-	& img {
-		height: 154px;
-		width: 154px;
-		border-radius: 50%;
+	& .actorImage {
+		height: 125px;
+		width: 125px;
+		border-radius: 125px;
+		background-size: cover;
+		background-position: center center;
+		margin: 0 auto;
 	}
+
+	// & img {
+	// 	height: 154px;
+	// 	width: 154px;
+	// 	border-radius: 50%;
+	// }
 	& h4 {
 		width: 100%;
 		text-align: center;
