@@ -15,9 +15,9 @@ function init(year) {
 async function getMovies(year) {
 	let movies = [];
 	const api = '9460c3936e9e9f9d5fd2b7f0b50f733b';
-
+	
 	for (i = 1; i < 4; i++) {
-		let url = `https://api.themoviedb.org/3/discover/movie?api_key=${api}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${i}&primary_release_year=${year}`;
+		let url = `https://api.themoviedb.org/3/discover/movie?api_key=${api}&language=en-US&region=US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${i}&primary_release_year=${year}` ;
 		const response = await axios.get(url);
 		const { data } = response;
 		const results = data.results;
@@ -45,6 +45,7 @@ function buildContent(movies) {
 						</ul>
 					</div>
 					<div class="movie__description">
+						<h5>${movie.title}</h5>
 						<p>${movie.overview}</p>
 					</div>
 				</div>`;

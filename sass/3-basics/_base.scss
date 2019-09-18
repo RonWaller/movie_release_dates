@@ -17,6 +17,11 @@ body {
 	color: black;
 	margin: 0;
 	padding: 0;
+	background-image: url('../img/movie_seats.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
 }
 
 ul {
@@ -31,12 +36,12 @@ header {
 main {
 	height: 100%;
 	width: 100%;
-	background-image: url('../img/movie_seats.jpg');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	background-attachment: fixed;
-	opacity: 0.75;
+	// background-image: url('../img/movie_seats.jpg');
+	// background-repeat: no-repeat;
+	// background-position: center;
+	// background-size: cover;
+	// background-attachment: fixed;
+	// opacity: 0.75;
 	padding-top: 25px;
 	& h3 {
 		font-family: 'Roboto', sans-serif;

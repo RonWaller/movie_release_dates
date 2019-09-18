@@ -20,7 +20,12 @@
 .movie__description {
 	height: 270px;
 	max-width: 180px;
-	padding: 20px 0 10px 10px;
+	padding: 10px 0 10px 10px;
+	& h5 {
+		margin: 0 0 15px 0;
+		color: $black;
+		text-align: center;
+	}
 	& p {
 		display: block;
 		/* hide text if it more than N lines  */
@@ -30,7 +35,7 @@
 		/* use this value to count block height */
 		line-height: 1.2em;
 		/* max-height = line-height (1.2) * lines max number (3) */
-		max-height: 17em;
+		max-height: 12.4em;
 		/* fix problem when last visible word doesn't adjoin right side  */
 		text-align: justify;
 		/* place for '...' */
